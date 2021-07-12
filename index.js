@@ -17,12 +17,12 @@ app.get("/companies", (req, res) => {
 
 app.get("/jobs", (req, res) => {
   const page = req.query.page;
-  const limit = 1;
+  const limit = 20;
   const start = (page - 1) * limit;
   const end = page * limit;
 
   if (!req.query.page) {
-    res.send(data.jobs.slice(0, 1));
+    res.send(data.jobs.slice(0, 19));
   } else {
     const result = data.jobs.slice(start, end);
     res.send(result);
